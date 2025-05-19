@@ -2,7 +2,7 @@ package com.sultan.counter.data.datasource
 
 import com.sultan.counter.data.model.CounterDto
 
-object CounterDataSource {
+class CounterDataSource {
 
 
     private var counter = 0

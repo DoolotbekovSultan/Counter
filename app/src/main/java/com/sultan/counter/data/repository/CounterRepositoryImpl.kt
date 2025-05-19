@@ -5,8 +5,9 @@ import com.sultan.counter.data.mapper.toCounter
 import com.sultan.counter.domain.model.Counter
 import com.sultan.counter.domain.repository.CounterRepository
 
-class CounterRepositoryImpl : CounterRepository {
-    private var api = CounterDataSource
+class CounterRepositoryImpl (
+    private var api : CounterDataSource
+) : CounterRepository {
 
 
     override fun increment() {

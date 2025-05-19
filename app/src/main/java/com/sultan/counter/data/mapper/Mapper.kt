@@ -4,8 +4,8 @@ import com.sultan.counter.data.model.CounterDto
 import com.sultan.counter.domain.model.Counter
 import com.sultan.counter.domain.model.TypeOfCounter
 
-fun toTypeOfCounter(type: String): TypeOfCounter {
-    return when (type) {
+fun String.toTypeOfCounter(): TypeOfCounter {
+    return when (this) {
         "increment" ->  TypeOfCounter.INCREMENT
         "decrement" ->  TypeOfCounter.DECREMENT
         else ->  TypeOfCounter.NONE
@@ -14,11 +14,7 @@ fun toTypeOfCounter(type: String): TypeOfCounter {
 }
 fun CounterDto.toCounter(): Counter {
     return Counter(
-        counter = this.counter,
-        typeOfCounter = when (this.type) {
-            "increment" -> TypeOfCounter.INCREMENT
-            "decrement" -> TypeOfCounter.DECREMENT
-            else -> TypeOfCounter.NONE
-        }
+        counter = counter,
+        typeOfCounter = type.toTypeOfCounter()
     )
 }
